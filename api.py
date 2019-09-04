@@ -198,6 +198,8 @@ class RelaySearchID(Resource):
             message = {'result':result}
         return jsonify(message)
 
+#Creación de búsquedas por medio de Nombres, esto es para usuarios o dispositivos
+
 #creamos las api's para obtener las direcciones url
 api.add_resource(Index, '/api/index', endpoint='index')
 api.add_resource(UserList, '/api/users', endpoint='users')

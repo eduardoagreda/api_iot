@@ -23,3 +23,5 @@ auth = HTTPBasicAuth()
 
 #cors
 cors = CORS(app, resources={r"/api/*":{"origins": "*"}})
+
+#El cors nos sirve para dar permisos

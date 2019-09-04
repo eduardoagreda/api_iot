@@ -13,3 +13,5 @@ Se tiene definida una base de datos con 4 tablas las cuales son:
     -> Dispositivo
     -> Muestra
     -> Relevador
+
+Para futuros usos se harán cambios mayores

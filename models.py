@@ -111,3 +111,6 @@ class SampleSchema(ma.ModelSchema):
 class RelaySchema(ma.ModelSchema):
     class Meta:
         model = Relay
+
+#Los esquemas nos sirven para poder añadir, visualizar, actualizar y eliminar datos
+#en conjunto a SQLAlchemy
