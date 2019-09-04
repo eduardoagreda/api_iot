@@ -9,20 +9,6 @@ device_schema = DeviceSchema()
 sample_schema = SampleSchema()
 relay_schema = RelaySchema()
 
-'''
-#Iniciamos con la solicitud de datos mediante auth
-@auth.get_password
-def get_pw(self):
-    args = request.get_json()
-    username = args['username']
-    password = args['password']
-
-    user = User.query.filter_by(username=username).first()
-
-    if username in user:
-        return user.get(username)
-    return None
-'''
 #creamos las vistas basadas en clases para el envío y consulta de listas de datos
 class Index(Resource):
     def get(self):
