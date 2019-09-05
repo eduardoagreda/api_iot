@@ -1,9 +1,9 @@
 import os
 
 #Se necesita cambiar los datos de las variables username, password, hostname y db_name
-DB_URI = "mysql+mysqlconnect://{username}:{password}@{hostname}/{db_name}".format(
+DB_URI = "mysql+mysqldb://{username}:{password}@{hostname}/{db_name}".format(
     username="root", 
-    password="root", 
+    password="", 
     hostname="localhost", 
     db_name="api_resi")
 
