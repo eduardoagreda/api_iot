@@ -96,7 +96,7 @@ class SampleList(Resource):
 
         sample = Sample.query.filter_by(device_id=device_id)
 
-        if sample is None:
+        if sample:
             result = 'No se han podido guardar los datos'
             message = {'result':result}
         else:
