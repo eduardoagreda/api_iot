@@ -9,7 +9,7 @@ from config import DevelopmentConfig, TestingConfig
 
 #Inicialización
 app = Flask(__name__)
-app.config.from_object(TestingConfig)
+app.config.from_object(DevelopmentConfig)
 
 #API
 api = Api(app)
