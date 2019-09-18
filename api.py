@@ -192,20 +192,39 @@ class RelaySearchID(Resource):
         relay_id = Sample.query.get(relay_id)
         if relay_id:
             result = relay_schema.dump(relay_id)
-            message = {'result': result}
+            message = { 'result': result }
         else:
             result = 'La dispositivo no existe en nuestro sistema'
-            message = {'result':result}
+            message = { 'result': result }
         return jsonify(message)
 
 #Creación de búsquedas por medio de Nombres, esto es para usuarios o dispositivos
+@app.route('/api/sample/a=<int:al1>&b=<int:al2>&d=<int:device>')
+def add_sample(al1, al2, device):
+    if request.method == "GET":
+        sample = Sample(analog1=al1, analog2=al2, device_id=device)
+        db.session.add(sample)
+        db.session.commit()
+        result = 'Dato añadido'
+        message = { 'result': result }
+        return jsonify(message)
+
+@app.route('/api/sample/a=<int:l1>&b=<int:l2>&d=<int:device>')
+def add_relay(l1, l2, device):
+    if request.method == "GET":
+        relay = Relay(log1=l1, log2=l2, device_id=device)
+        db.session.add(relay)
+        db.session.commit()
+        result = 'Dato añadido'
+        message = { 'result': result }
+        return jsonify(message)
 
 #creamos las api's para obtener las direcciones url
-api.add_resource(Index, '/api/index', endpoint='index')
+api.add_resource(Index, '/', endpoint='index')
 api.add_resource(UserList, '/api/users', endpoint='users')
 api.add_resource(DeviceList, '/api/devices', endpoint='devices')
-api.add_resource(SampleList, '/api/sample', endpoint='sample')
-api.add_resource(RelayList, '/api/relay', endpoint='relay')
+#api.add_resource(SampleList, '/api/sample', endpoint='sample')
+#api.add_resource(RelayList, '/api/relay', endpoint='relay')
 api.add_resource(UserSearchID, '/api/<int:user_id>/user', endpoint='search_userID')
 api.add_resource(DeviceSearchID, '/api/<int:device_id>/device', endpoint='search_deviceID')
 api.add_resource(SampleSearchID, '/api/<int:sample_id>/sample', endpoint='search_sampleID')
