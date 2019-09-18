@@ -223,8 +223,8 @@ def add_relay(l1, l2, device):
 api.add_resource(Index, '/', endpoint='index')
 api.add_resource(UserList, '/api/users', endpoint='users')
 api.add_resource(DeviceList, '/api/devices', endpoint='devices')
-#api.add_resource(SampleList, '/api/sample', endpoint='sample')
-#api.add_resource(RelayList, '/api/relay', endpoint='relay')
+api.add_resource(SampleList, '/api/sample', endpoint='sample')
+api.add_resource(RelayList, '/api/relay', endpoint='relay')
 api.add_resource(UserSearchID, '/api/<int:user_id>/user', endpoint='search_userID')
 api.add_resource(DeviceSearchID, '/api/<int:device_id>/device', endpoint='search_deviceID')
 api.add_resource(SampleSearchID, '/api/<int:sample_id>/sample', endpoint='search_sampleID')
@@ -236,4 +236,4 @@ if __name__ == '__main__':
     db.init_app(app)
     with app.app_context():
         db.create_all()
-    app.run(port=8000, host='0.0.0.0')
+    app.run(port=80, host='0.0.0.0')
